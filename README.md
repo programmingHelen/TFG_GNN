@@ -1,41 +1,20 @@
 # Graph Neural Network Architectures
+This repository delves into the exploration and implementation of prominent Graph Neural Network (GNN) architectures, featuring Graph Attention Networks (GAT), GraphSAGE, and Graph Convolutional Networks (GCN). The project base was the repository (https://github.com/MrLeeeee/GCN-GAT-and-Graphsage/tree/master).
 
-This repository delves into the exploration and implementation of prominent Graph Neural Network (GNN) architectures, featuring Graph Attention Networks (GAT), GraphSAGE, and Graph Convolutional Networks (GCN). The code draws inspiration from MrLeee's work.
+## Data folder
+**Overview:**
+* Contains all the datasets used for the simulations and the raw JSON files from Deezer.
+* Dataset.py with all the preprocessing functions
+* Deezer reader.ipynb auxiliary notebook to convert files from JSON and csv to .content and .cites
 
+## Models folder
+Includes the 3 architecture files in .py extension. With their spefic layers
+BasicModel.py
+Graphsage.py
+PyGAT.py
+PyGCN.py
+__init__.py
 
-## Graph Attention Networks (GAT)
-
-**Overview:** GAT, introduced by Velickovic et al., leverages attention mechanisms to enhance information aggregation in graph-structured data. The architecture's flexibility and power in handling varying graph sizes make it a prominent choice for tasks like node classification, link prediction, and graph classification.
-
-**Challenges:** Despite its success, GAT faces challenges like over-smoothing, prompting the development of variants like GATv2.
-
-**Visual Aid:** [GAT Illustration](link-to-gat-illustration-image)
-
-## GraphSAGE
-
-**Overview:** GraphSAGE is designed for inductive representation learning on large graphs, efficiently handling scalability issues. It incorporates neighbor sampling, aggregation functions, and layer-wise aggregation for applications like node classification, link prediction, and graph classification.
-
-**Applications:** Used in real-world scenarios such as Pinterest's PinSAGE and UberEats for recommendations.
-
-**Visual Aid:** [GraphSAGE Visualization](link-to-graphsage-visualization-image)
-
-## Graph Convolutional Networks (GCN)
-
-**Overview:** GCN, a natural choice for graph-structured data, performs message passing and aggregation to capture relational information. Its success in various applications like node classification and graph classification has made it a popular tool in domains such as social networks and bioinformatics.
-
-**Generalization:** GCNs can be generalized in both spectral and spatial domains, inspiring subsequent models and applications.
-
-**Visual Aid:** [GCN Schema](link-to-gcn-schema-image)
-
-## Data Preprocessing and Utilization
-
-The repository includes a comprehensive data loading and preprocessing module, accommodating diverse datasets. The preprocessing addresses challenges encountered in large datasets, including parallelization to enhance computational efficiency.
-
-**Parallelized Workflow:** The initial code, while effective for smaller datasets, faced computational challenges with larger datasets. To address this, we parallelized the workflow, breaking down the processing load into smaller, independent jobs to improve efficiency. Despite the reduction in processing time, larger datasets necessitated significant computing resources.
-
-**Dataset Information:** The repository supports multiple datasets, including Cora, Citeseer, and a large RO dataset. The preprocessing involves tasks like one-hot encoding labels, normalizing sparse matrices, and handling edge information.
-
-## Code Structure
-
-The implementations are structured for clarity and ease of understanding. Additionally, code comments and documentation have been included to provide detailed insights into each architecture's components and functions.
-
+## Utilization
+1. Check the requirements.txt for the libraries versions.
+2. Run the main.ipynb selecting the dataset and models you want.
