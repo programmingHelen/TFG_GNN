@@ -121,10 +121,14 @@ def load_data(opt):
     idx_val = list()
     idx_test = list()
 
-    for ele in labels_map:
-        idx_train.extend(labels_map[ele][0:int(opt.train_rate * labels.shape[0])])
-        idx_val.extend(labels_map[ele][int(opt.train_rate * labels[0]):int((opt.val_rate) * labels.shape[0])])
-        idx_test.extend(labels_map[ele][int((opt.val_rate) * labels.shape[0]):])
+      # Determine the number of samples in each split
+    train_size = int(opt.train_rate *  labels.shape[0])
+    val_size = int(opt.val_rate * labels.shape[0])
+    
+    # Extend the index lists for each split
+    idx_train.extend(np.arange(train_size))
+    idx_val.extend(np.arange(train_size, train_size + val_size))
+    idx_test.extend(np.arange(train_size + val_size, train_size + val_size + val_size))
 
     # Convert features and adjacency matrix to PyTorch FloatTensors
     features = torch.FloatTensor(np.array(features.todense()))
